@@ -31,7 +31,7 @@ File_Management
 
 ---
 
-# 1️⃣ [Directory Existence] (#directory-existence)
+# 1️⃣ (#[Directory Existence](https://github.com/sonukkushwaha0801/Linux-Automation-Toolkit/tree/main/File_Management/Directory_existence)
 
 This folder contains scripts that check whether a **directory exists in the system**.
 If the directory does not exist, the script **automatically creates it**.

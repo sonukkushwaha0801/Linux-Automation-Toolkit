@@ -1,4 +1,8 @@
-Linux Automation Toolkit
+<p align="center">
+  <img src="banner.png" alt="Linux Automation Toolkit Banner" width="100%">
+</p>
+
+# Linux Automation Toolkit
 
 A practical collection of Bash scripts designed to automate common Linux
 administration, monitoring, and troubleshooting tasks.

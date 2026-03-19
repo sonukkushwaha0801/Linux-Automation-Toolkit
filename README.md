@@ -180,9 +180,11 @@ to access sensitive system files like:
 
 ---
 
-# 📸 Demo (Recommended)
+# 📸 Demo 
 
-*Add screenshots or a demo GIF here to showcase the CLI interface.*
+<p align="center">
+  <img src="Running Sample.mp4" alt="Linux Automation Toolkit Banner" width="100%">
+</p>
 
 ---
 

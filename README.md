@@ -182,9 +182,7 @@ to access sensitive system files like:
 
 # 📸 Demo 
 
-<p align="center">
-  <img src="Running Sample.mp4" alt="Linux Automation Toolkit Banner" width="100%">
-</p>
+[▶️ Watch Demo]("Running Sample.mp4")
 
 ---
 

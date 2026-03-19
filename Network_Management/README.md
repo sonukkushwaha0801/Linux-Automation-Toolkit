@@ -1,232 +1,249 @@
-# Network Management Scripts
+# 🌐 Network Management Module - Linux Automation Toolkit
 
-This directory contains Bash scripts used to perform common **network monitoring, troubleshooting, and diagnostic tasks** on a Linux system.
+The **Network Management module** is a part of the **Linux Automation Toolkit**.
+It provides a collection of Bash scripts to perform **network diagnostics, monitoring, and analysis tasks**.
 
-These scripts are part of the **Linux-Automation-Toolkit** project and are designed to help users automate everyday networking tasks such as connectivity checks, DNS lookups, port monitoring, and network scanning.
+This module helps users analyze connectivity, DNS behavior, network performance, and open ports using a **menu-driven CLI interface**.
 
 ---
 
-# 📋 Script Descriptions
+# 📁 Folder Structure
 
-## ping_host.sh
-
-Checks connectivity to a host using ICMP ping requests.
-
-**Usage**
-
+```bash id="i1r2mg"
+Network_Management
+│
+├── network_management.sh        # Main controller script
+│
+├── check_active_connections.sh
+├── check_dns_server.sh
+├── check_open_ports.sh
+├── dns_lookup_domain.sh
+├── get_ip_address.sh
+├── network_latency_monitor.sh
+├── network_monitor.sh
+├── network_scan.sh
+├── ping_host.sh
+├── reverse_dns_lookup.sh
+├── traceroute_host.sh
+├── website_status_checker.sh
 ```
-./ping_host.sh <hostname_or_ip>
+
+---
+
+# 🧭 Module Flow
+
+```text id="wy5z8j"
+network_management.sh
+   ↓
+Basic Network Info
+   ↓
+Connectivity Tools
+   ↓
+DNS Tools
+   ↓
+Monitoring & Analysis
+   ↓
+Scanning & Ports
 ```
 
-**Example**
+👉 `network_management.sh` acts as the **entry point** for this module.
 
+---
+
+# ⚙️ Main Controller Script
+
+## 🔹 network_management.sh
+
+This script provides a **menu-driven interface** to access all network-related functionalities.
+
+### Features
+
+* Interactive CLI navigation
+* Categorized networking tools
+* Easy access to diagnostic utilities
+* Clean and structured workflow
+
+### ▶ Run
+
+```bash id="azhhxy"
+bash network_management.sh
 ```
+
+---
+
+# 📡 1. Basic Network Information
+
+Scripts to retrieve basic network configuration details.
+
+### get_ip_address.sh
+
+* Displays system IP address
+
+### check_dns_server.sh
+
+* Checks DNS resolution for a given domain
+
+---
+
+# 🔗 2. Connectivity Tools
+
+Scripts to test network connectivity and availability.
+
+### ping_host.sh
+
+```bash id="lt5j27"
 ./ping_host.sh google.com
 ```
 
+* Checks host reachability
+
 ---
 
-## reverse_dns_lookup.sh
+### traceroute_host.sh
 
-Performs a **reverse DNS lookup** to find the hostname associated with an IPv4 address.
-
-**Usage**
-
-```
-./reverse_dns_lookup.sh <IPv4_address>
+```bash id="h5cdys"
+./traceroute_host.sh google.com
 ```
 
-**Example**
+* Displays route to the destination
 
+---
+
+### website_status_checker.sh
+
+```bash id="9o5bbf"
+./website_status_checker.sh google.com
 ```
+
+* Checks if a website is reachable
+
+---
+
+# 🧠 3. DNS Tools
+
+Scripts related to DNS resolution.
+
+### dns_lookup_domain.sh
+
+```bash id="1qhvx5"
+./dns_lookup_domain.sh google.com
+```
+
+---
+
+### reverse_dns_lookup.sh
+
+```bash id="2ryvy9"
 ./reverse_dns_lookup.sh 8.8.8.8
 ```
 
 ---
 
-## dns_lookup_domain.sh
+# 📊 4. Monitoring & Analysis
 
-Resolves a domain name and displays the associated IP addresses.
+Scripts to monitor network activity and performance.
 
-**Usage**
+### network_monitor.sh
 
+* Displays real-time network activity
+
+### network_latency_monitor.sh
+
+```bash id="t9rux1"
+./network_latency_monitor.sh google.com
 ```
-./dns_lookup_domain.sh <domain>
+
+* Calculates average network latency
+
+### check_active_connections.sh
+
+* Lists active network connections
+
+---
+
+# ⚔️ 5. Scanning & Ports
+
+Scripts for network scanning and port analysis.
+
+### network_scan.sh
+
+* Scans network for active hosts
+
+### check_open_ports.sh
+
+* Displays open ports on the system
+
+---
+
+# 🔄 Argument vs Interactive Usage
+
+Most scripts support **argument-based input**, allowing flexible usage.
+
+Example:
+
+```bash id="yhz8hq"
+./ping_host.sh google.com
 ```
 
-**Example**
+👉 This makes the module suitable for both **manual usage and automation**.
 
+---
+
+# ▶️ How to Use
+
+### Make scripts executable
+
+```bash id="1q6fgl"
+chmod +x *.sh
 ```
-./dns_lookup_domain.sh github.com
+
+### Run module
+
+```bash id="5emjci"
+bash network_management.sh
 ```
 
 ---
 
-## check_dns_server.sh
+# 🔁 Integration with Toolkit
 
-Checks whether a DNS server is responding to queries.
+You can access this module via the main toolkit:
 
-**Usage**
-
-```
-./check_dns_server.sh <dns_server_ip>
+```bash id="ut0eg0"
+./toolkit.sh
 ```
 
-**Example**
+Navigate to:
 
-```
-./check_dns_server.sh 8.8.8.8
+```text id="75fw0k"
+Network Management → Select Operation
 ```
 
 ---
 
-## get_ip_address.sh
+# 🎯 Purpose of This Module
 
-Displays the IPv4 addresses of all active network interfaces.
+This module is designed to:
 
-**Usage**
-
-```
-./get_ip_address.sh
-```
-
----
-
-## check_open_ports.sh
-
-Displays all open or listening ports on the system.
-
-**Usage**
-
-```
-./check_open_ports.sh
-```
+* Diagnose network issues
+* Analyze connectivity and performance
+* Perform DNS operations
+* Monitor real-time network activity
+* Assist in basic network security analysis
 
 ---
 
-## check_active_connections.sh
+# 🚀 Future Improvements
 
-Shows active TCP connections including local and remote addresses.
-
-**Usage**
-
-```
-./check_active_connections.sh
-```
+* Add bandwidth monitoring
+* Add packet loss detection
+* Add automated network health report
+* Improve output formatting
 
 ---
 
-## network_latency_monitor.sh
+# 👨‍💻 Author
 
-Calculates the **average network latency** to a given host using ping.
-
-**Usage**
-
-```
-./network_latency_monitor.sh <hostname_or_ip>
-```
-
----
-
-## traceroute_host.sh
-
-Traces the network path packets take to reach a destination host.
-
-**Usage**
-
-```
-./traceroute_host.sh <hostname_or_ip>
-```
-
----
-
-## website_status_checker.sh
-
-Checks whether a website is reachable and returns its HTTP status code.
-
-**Usage**
-
-```
-./website_status_checker.sh <website>
-```
-
-**Example**
-
-```
-./website_status_checker.sh github.com
-```
-
----
-
-## network_scan.sh
-
-Scans the local network to identify active devices using a ping sweep.
-
-**Usage**
-
-```
-./network_scan.sh <network_prefix>
-```
-
-**Example**
-
-```
-./network_scan.sh 192.168.1
-```
-
----
-
-## network_monitor.sh
-
-Monitors network traffic using available tools such as:
-
-* iftop
-* nload
-* vnstat
-
-**Usage**
-
-```
-./network_monitor.sh
-```
-
----
-
-# 🔧 Requirements
-
-These scripts use standard Linux networking utilities such as:
-
-* `ping`
-* `dig`
-* `host`
-* `ss`
-* `ip`
-* `traceroute`
-* `curl`
-
-Optional monitoring tools:
-
-* `iftop`
-* `nload`
-* `vnstat`
-
-These utilities are available on most Linux distributions or can be installed using the package manager.
-
----
-
-# 📌 Purpose of This Module
-
-The **Network_Management** module demonstrates how Bash scripting can automate common networking tasks including:
-
-* Network connectivity testing
-* DNS resolution and verification
-* Monitoring open ports and active connections
-* Measuring network latency
-* Tracing packet routes
-* Detecting active devices on a network
-* Monitoring network traffic
-
-These scripts help users understand **Linux networking concepts and troubleshooting techniques**.
-
----
+**Sonu Kumar Kushwaha**
+Linux Automation Toolkit Project
 

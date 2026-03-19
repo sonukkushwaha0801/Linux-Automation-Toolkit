@@ -1,152 +1,214 @@
-# User Management
+# 👤 User Management Module - Linux Automation Toolkit
 
-This directory contains Bash scripts designed to automate **user administration and security auditing tasks** on Linux systems.
+The **User Management module** is a part of the **Linux Automation Toolkit**.
+It provides Bash scripts to manage and audit system users in a Linux environment.
 
-These scripts help system administrators manage user accounts, monitor privileges, detect locked accounts, and analyze login history.
-
-This module is part of the **Linux-Automation-Toolkit** project.
-
----
-
-## 📂 Available Scripts
-
-### 1. `list_all_users.sh`
-
-Lists all user accounts present on the system by reading the `/etc/passwd` file.
+This module allows administrators to perform **user operations, user analysis, and security audits** using a **menu-driven CLI interface**.
 
 ---
 
-### 2. `check_user_existence.sh`
+# 📁 Folder Structure
 
-Checks whether a specific user exists on the system.
+```bash id="6m7z5k"
+User_Management
+│
+├── user_management.sh        # Main controller script
+│
+├── create_new_user.sh
+├── delete_user.sh
+├── check_user_existence.sh
+├── list_all_users.sh
+├── user_login_history.sh
+├── sudo_users_detector.sh
+├── locked_accounts_detector.sh
+```
 
-Usage example:
+---
 
-```bash
+# 🧭 Module Flow
+
+```text id="k7z1cl"
+user_management.sh
+   ↓
+User Operations
+   ↓
+User Information
+   ↓
+Security & Audit
+```
+
+👉 `user_management.sh` acts as the **entry point** for this module.
+
+---
+
+# ⚙️ Main Controller Script
+
+## 🔹 user_management.sh
+
+This script provides a **menu-driven interface** for managing users and performing security audits.
+
+### Features
+
+* Interactive CLI navigation
+* Categorized user operations
+* Safe and structured workflow
+* Centralized user management system
+
+### ▶ Run
+
+```bash id="p0q6g4"
+bash user_management.sh
+```
+
+---
+
+# 👤 1. User Operations
+
+Scripts to manage system users.
+
+### create_new_user.sh
+
+* Creates a new system user
+
+---
+
+### delete_user.sh
+
+```bash id="8y0m4b"
+./delete_user.sh username
+```
+
+* Deletes an existing user
+
+---
+
+### check_user_existence.sh
+
+```bash id="tx1fxn"
 ./check_user_existence.sh username
 ```
 
----
-
-### 3. `create_new_user.sh`
-
-Creates a new user account with a home directory.
-
-Note:
-Requires **sudo/root privileges**.
+* Checks whether a user exists
 
 ---
 
-### 4. `delete_user.sh`
+# 📋 2. User Information
 
-Deletes an existing user account from the system.
+Scripts to retrieve user-related data.
 
-The script can also remove the user's home directory.
+### list_all_users.sh
 
----
-
-### 5. `sudo_users_detector.sh`
-
-Displays all users who have **sudo privileges** on the system.
-
-Useful for privilege auditing and security checks.
+* Displays all system users
 
 ---
 
-### 6. `locked_accounts_detector.sh`
+### user_login_history.sh
 
-Detects user accounts that are currently **locked or disabled**.
-
----
-
-### 7. `user_login_history.sh`
-
-Shows the **login history of a specific user** by analyzing system authentication logs.
+* Shows login history of users
 
 ---
 
-### 8. `user_management_menu.sh`
+# 🔐 3. Security & Audit
 
-Interactive menu-based interface that allows administrators to run all user management scripts from a single toolkit.
+Scripts to analyze system user security.
 
-Features:
+### sudo_users_detector.sh
 
-* List users
-* Check user existence
-* Create user
-* Delete user
-* View sudo users
-* Detect locked accounts
-* Check login history
+* Lists users with sudo privileges
 
 ---
 
-## ⚙ Requirements
+### locked_accounts_detector.sh
 
-These scripts are designed for **modern Linux distributions** such as:
-
-* Kali Linux
-* Ubuntu
-* Debian
-* Fedora
-
-Required utilities:
-
-* bash
-* grep
-* awk
-* cut
-* journalctl
-* useradd
-* userdel
-* passwd
-
-Most of these tools are pre-installed on standard Linux systems.
+* Detects locked user accounts
 
 ---
 
-## ▶ Usage
+# ⚠️ Important Note (Permissions)
 
-Make scripts executable:
+Some operations require **root privileges**, such as:
 
-```bash
-chmod +x *.sh
+* Creating users
+* Deleting users
+* Accessing `/etc/shadow`
+* Detecting locked accounts
+
+### ▶ Run with sudo
+
+```bash id="d9sn2c"
+sudo ./toolkit.sh
 ```
 
-Run a script:
+---
 
-```bash
-./script_name.sh
-```
+# 🔄 Script Usage
+
+Most scripts support **argument-based input**.
 
 Example:
 
-```bash
-./list_all_users.sh
+```bash id="hlcrsp"
+./check_user_existence.sh username
 ```
 
-Run the interactive menu:
+👉 This allows both **manual and automated execution**.
 
-```bash
-./user_management_menu.sh
+---
+
+# ▶️ How to Use
+
+### Make scripts executable
+
+```bash id="8f2q7d"
+chmod +x *.sh
+```
+
+### Run module
+
+```bash id="z8j6c2"
+bash user_management.sh
 ```
 
 ---
 
-## 🎯 Purpose
+# 🔁 Integration with Toolkit
 
-The goal of these scripts is to simplify common **user administration and security auditing tasks**, including:
+Access this module through the main toolkit:
 
-* Managing user accounts
-* Detecting privileged users
-* Monitoring login activity
-* Identifying locked accounts
-* Automating administrative workflows
+```bash id="j9t2vn"
+./toolkit.sh
+```
+
+Navigate to:
+
+```text id="ib0x5f"
+User Management → Select Option
+```
 
 ---
 
-## 👨‍💻 Author
+# 🎯 Purpose of This Module
+
+This module is designed to:
+
+* Manage system users efficiently
+* Perform user-related operations
+* Monitor user activity
+* Enhance system security through auditing
+
+---
+
+# 🚀 Future Improvements
+
+* Add user role management
+* Add password policy checks
+* Add login attempt alerts
+* Improve output formatting and logging
+
+---
+
+# 👨‍💻 Author
 
 **Sonu Kumar Kushwaha**
+Linux Automation Toolkit Project
 
-Project: **Linux-Automation-Toolkit**

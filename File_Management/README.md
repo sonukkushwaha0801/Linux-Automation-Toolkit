@@ -1,16 +1,22 @@
-# File Management - Linux Automation Scripts
+# 📂 File Management Module - Linux Automation Toolkit
 
-This module is part of the **Linux-Automation-Toolkit** repository.
-It contains Bash scripts designed to automate common **file and directory management operations in Linux systems**.
+The **File Management module** is a core component of the **Linux Automation Toolkit**.
+It automates common file system operations such as:
 
-These scripts help system administrators and developers quickly verify file/directory existence and validate file permissions.
+* Directory creation and validation
+* File creation and existence checking
+* File permission verification
+
+This module is built using a **menu-driven CLI approach**, making it easy to use and extend.
 
 ---
 
-# Folder Structure
+# 📁 Folder Structure
 
-```
+```bash
 File_Management
+│
+├── file_management.sh        # Main controller script
 │
 ├── Directory_existence
 │   ├── check_and_create_directory_arg.sh
@@ -21,243 +27,210 @@ File_Management
 │   └── check_and_create_file_interactive.sh
 │
 └── Permission
+    ├── permission.sh
     ├── check_execute_permission_arg.sh
     ├── check_execute_permission_interactive.sh
     ├── check_read_permission_arg.sh
     ├── check_read_permission_interactive.sh
     ├── check_write_permission_arg.sh
-    └── check_write_permission_interactive.sh
+    ├── check_write_permission_interactive.sh
 ```
 
 ---
 
-# 1️⃣ [Directory Existence](https://github.com/sonukkushwaha0801/Linux-Automation-Toolkit/tree/main/File_Management/Directory_existence)
+# 🧭 Module Flow
 
-This folder contains scripts that check whether a **directory exists in the system**.
-If the directory does not exist, the script **automatically creates it**.
-
-### Scripts
-
-### `check_and_create_directory_arg.sh`
-
-This script takes the **directory name as a command line argument**.
-
-#### Working
-
-1. The script receives a directory name as input.
-2. It checks if the directory already exists.
-3. If the directory exists → It prints a message.
-4. If the directory does not exist → It creates the directory.
-
-#### Example
-
+```text
+file_management.sh
+   ↓
+Directory Management
+   ↓
+File Management
+   ↓
+Permission Management
 ```
+
+👉 `file_management.sh` acts as the **entry point** for this module.
+
+---
+
+# ⚙️ Main Controller Script
+
+## 🔹 file_management.sh
+
+This script provides a **menu-driven interface** to manage all file-related operations.
+
+### Features
+
+* Interactive CLI menu
+* Centralized access to all submodules
+* Easy navigation between operations
+* Clean and structured workflow
+
+### ▶ Run
+
+```bash
+bash file_management.sh
+```
+
+---
+
+# 📁 1. Directory Management
+
+These scripts check whether a directory exists and create it if necessary.
+
+## Scripts
+
+### check_and_create_directory_arg.sh
+
+* Takes directory name as argument
+* Checks if directory exists
+* Creates directory if not found
+
+```bash
 ./check_and_create_directory_arg.sh myfolder
 ```
 
-Output:
+---
 
-```
-Directory does not exist. Creating directory...
-Directory created successfully.
-```
+### check_and_create_directory_interactive.sh
+
+* Prompts user for directory name
+* Creates directory if missing
 
 ---
 
-### `check_and_create_directory_interactive.sh`
+# 📄 2. File Management
 
-This script asks the **user to input the directory name interactively**.
+Scripts to check file existence and create files when required.
 
-#### Working
+## Scripts
 
-1. The script prompts the user to enter a directory name.
-2. It checks whether the directory exists.
-3. If not found, it creates the directory.
+### check_and_create_file_arg.sh
 
----
+* Takes file name as argument
+* Creates file using `touch` if it does not exist
 
-# 2️⃣ File Existence
-
-This folder contains scripts that verify whether a **file exists** and create it if necessary.
-
----
-
-### `check_and_create_file_arg.sh`
-
-This script takes the **file name as a command-line argument**.
-
-#### Working
-
-1. The script receives the file name.
-2. It checks whether the file exists.
-3. If the file exists → It prints a message.
-4. If the file does not exist → It creates the file using `touch`.
-
-#### Example
-
-```
-./check_and_create_file_arg.sh myfile.txt
+```bash
+./check_and_create_file_arg.sh file.txt
 ```
 
 ---
 
-### `check_and_create_file_interactive.sh`
+### check_and_create_file_interactive.sh
 
-This script works in **interactive mode**.
-
-#### Working
-
-1. The script asks the user to enter the file name.
-2. It checks whether the file exists.
-3. If the file does not exist → The script creates the file.
+* Interactive input mode
+* Creates file if missing
 
 ---
 
-# 3️⃣ Permission Checks
+# 🔐 3. Permission Management
 
-This folder contains scripts that check **file permissions in Linux**.
+This section checks file permissions.
 
-The scripts verify whether a file has:
+Supported permissions:
 
-* Read Permission
-* Write Permission
-* Execute Permission
-
-Each permission type has **two versions**:
-
-* Argument based script
-* Interactive script
+* Read (`-r`)
+* Write (`-w`)
+* Execute (`-x`)
 
 ---
 
-## Read Permission
+## 🔹 Permission Controller
 
-### `check_read_permission_arg.sh`
+### permission.sh
 
-Checks whether a file has **read permission** using a command-line argument.
+Acts as a **submenu handler** for all permission-related scripts.
 
-Example:
+---
 
-```
+## 🔹 Permission Scripts
+
+### Read Permission
+
+```bash
 ./check_read_permission_arg.sh file.txt
 ```
 
-The script checks the file using:
+### Write Permission
 
-```
--r
-```
-
-If the user has read permission, it prints a success message.
-
----
-
-### `check_read_permission_interactive.sh`
-
-This script asks the user to input the file name and then checks **read permission**.
-
----
-
-## Write Permission
-
-### `check_write_permission_arg.sh`
-
-Checks if a file has **write permission** using an argument.
-
-Example:
-
-```
+```bash
 ./check_write_permission_arg.sh file.txt
 ```
 
-Uses the permission check:
+### Execute Permission
 
-```
--w
-```
-
----
-
-### `check_write_permission_interactive.sh`
-
-This script asks the user to input the file name and verifies **write permission**.
-
----
-
-## Execute Permission
-
-### `check_execute_permission_arg.sh`
-
-Checks if a file has **execute permission**.
-
-Example:
-
-```
+```bash
 ./check_execute_permission_arg.sh script.sh
 ```
 
-Uses the permission check:
+---
 
+# 🔄 Argument vs Interactive Scripts
+
+| Type           | Description                             |
+| -------------- | --------------------------------------- |
+| Argument-Based | Input passed via command-line arguments |
+| Interactive    | User input during script execution      |
+
+👉 This demonstrates multiple approaches for handling input in Bash scripting.
+
+---
+
+# ▶️ How to Use
+
+### Make scripts executable
+
+```bash
+chmod +x *.sh
 ```
--x
+
+### Run module
+
+```bash
+bash file_management.sh
 ```
 
 ---
 
-### `check_execute_permission_interactive.sh`
+# 🔁 Integration with Toolkit
 
-This script asks the user to input the file name and verifies **execute permission** interactively.
+You can access this module from the main toolkit:
 
----
-
-# Argument vs Interactive Scripts
-
-| Type                | Description                                     |
-| ------------------- | ----------------------------------------------- |
-| Argument Scripts    | Take input directly from command-line arguments |
-| Interactive Scripts | Ask the user for input during execution         |
-
-This helps demonstrate **different ways of handling input in Bash scripts**.
-
----
-
-# How to Run the Scripts
-
-Make the script executable:
-
-```
-chmod +x script_name.sh
+```bash
+./toolkit.sh
 ```
 
-Run the script:
+Navigate to:
 
-```
-./script_name.sh
-```
-
-Example:
-
-```
-./check_and_create_file_arg.sh demo.txt
+```text
+File Management → Choose Operation
 ```
 
 ---
 
-# Purpose of This Module
+# 🎯 Purpose of This Module
 
-The purpose of this module is to demonstrate **basic file management automation using Bash scripting**.
+This module helps to:
 
-These scripts help in:
-
-* Automating repetitive file system tasks
-* Learning Bash scripting fundamentals
-* Understanding Linux file permissions
-* Improving system administration efficiency
+* Automate repetitive file system operations
+* Learn Bash scripting fundamentals
+* Understand Linux file permissions
+* Improve efficiency in system administration tasks
 
 ---
 
-# Author
+# 🚀 Future Improvements
+
+* Add bulk file/directory operations
+* Improve error handling
+* Add logging support
+* Add colored output for better UX
+
+---
+
+# 👨‍💻 Author
 
 **Sonu Kumar Kushwaha**
-
 Linux Automation Toolkit Project
+

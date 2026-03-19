@@ -182,8 +182,7 @@ to access sensitive system files like:
 
 # 📸 Demo 
 
-[▶ Watch Demo](./demo.mp4)
-
+[![Watch Demo](./banner.png)](./demo.mp4)
 ---
 
 # 🤝 Contributing

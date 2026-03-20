@@ -196,6 +196,7 @@ Feel free to fork the repository and submit a pull request.
 # 👨‍💻 Author
 
 **Sonu Kumar Kushwaha**
+
 Linux Automation Toolkit Project
 
 ---
